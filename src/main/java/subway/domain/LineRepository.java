@@ -26,6 +26,9 @@ public class LineRepository {
     }
 
     public static Line selectLineByName(String lineName) {
-        return (Line) lines.stream().filter(l -> l.getName().equals(lineName));
+        return lines.stream()
+            .filter(l -> l.getName().equals(lineName))
+            .findFirst()
+            .orElse(null);
     }
 }
