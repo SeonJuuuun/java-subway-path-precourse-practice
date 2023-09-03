@@ -5,20 +5,15 @@ import subway.domain.Screen;
 
 public class ScreenController {
 
-    private final MainController mainController;
-    private final PathController pathController;
-
-    public ScreenController(MainController mainController, PathController pathController) {
-        this.mainController = mainController;
-        this.pathController = pathController;
+    private ScreenController() {
     }
 
-    public void run(Screen screen, Scanner scanner) {
+    public static void run(Screen screen, Scanner scanner) {
         if (screen.equals(Screen.MAIN)) {
-            mainController.run(scanner);
+            MainController.run(scanner);
         }
         if (screen.equals(Screen.PATH)) {
-            pathController.run(scanner);
+            PathController.run(scanner);
         }
     }
 }
