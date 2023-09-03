@@ -25,12 +25,19 @@ public class StationRepository {
     }
 
     public static List<Station> selectStationsByNames(List<String> stationNames) {
-        List<Station> stations = new ArrayList<>();
+        List<Station> selectedStations = new ArrayList<>();
         for (String stationName : stationNames) {
-            stations.add((Station) stations.stream()
-                .filter(s -> s.getName()
-                    .equals(stationName)));
+            selectStations(selectedStations, stationName);
         }
-        return stations;
+        return selectedStations;
+    }
+
+    private static void selectStations(List<Station> selectedStations, String stationName) {
+        for (Station station : stations) {
+            if (station.getName().equals(stationName)) {
+                selectedStations.add(station);
+                break;
+            }
+        }
     }
 }
