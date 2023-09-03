@@ -13,8 +13,8 @@ public class Path {
         List<Integer> pathTimes) {
         this.line = line;
         this.station = station;
-        this.pathDistances = pathDistances;
-        this.pathTimes = pathTimes;
+        this.pathDistances = new PathDistances(station, pathDistances);
+        this.pathTimes = new PathTimes(station, pathTimes);
     }
 
     public PathDistances getPathDistances() {
